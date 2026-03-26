@@ -73,7 +73,7 @@ const Navbar = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-brand-bg overflow-hidden shadow-inner absolute w-full border-b border-brand-gold/20"
+            className="md:hidden bg-gradient-to-b from-[#110805] to-[#1b0b06] overflow-hidden shadow-inner absolute w-full border-b border-brand-gold/40"
           >
             <div className="flex flex-col py-4">
               {navLinks.map((link) => (

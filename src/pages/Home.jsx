@@ -10,6 +10,17 @@ const Home = () => {
   const { openBookingForm } = useBooking();
   const navigate = useNavigate();
   const [expandingWindow, setExpandingWindow] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check viewport for disabling parallax on mobile to prevent overlapping
+  useState(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      handleResize(); // Initial check
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
   const handleEnterWindow = (e, path, index) => {
     e.preventDefault();
@@ -87,7 +98,7 @@ const Home = () => {
               <p className="text-brand-gold font-serif text-lg md:text-2xl tracking-[0.3em] uppercase mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 Welcome to
               </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-brand-light mb-8 leading-tight drop-shadow-[0_0_20px_rgba(0,0,0,1)]">
+              <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-brand-light mb-8 leading-tight drop-shadow-[0_0_20px_rgba(0,0,0,1)]">
                 Royal Experience
               </h1>
               
@@ -129,11 +140,11 @@ const Home = () => {
               <div className="absolute inset-y-0 right-0 w-[1px] bg-brand-gold/30 z-20"></div>
 
               {/* Majestic Left Door Handle */}
-              <div className="relative right-12 md:right-24 z-30 drop-shadow-[10px_10px_15px_rgba(0,0,0,0.8)]">
+              <div className="relative right-4 md:right-24 z-30 drop-shadow-[10px_10px_15px_rgba(0,0,0,0.8)]">
                 {/* Backplate */}
-                <div className="w-12 h-48 md:w-16 md:h-64 bg-gradient-to-b from-[#b8860b] via-[#d4af37] to-[#8a6d1c] rounded-full flex justify-center items-center shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] border border-[#ffdf73]/20">
+                <div className="w-8 h-32 md:w-16 md:h-64 bg-gradient-to-b from-[#b8860b] via-[#d4af37] to-[#8a6d1c] rounded-full flex justify-center items-center shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] border border-[#ffdf73]/20">
                   {/* Pull Ring */}
-                  <div className="w-8 h-8 md:w-12 md:h-12 border-[6px] md:border-[8px] border-[#2a2a2a] rounded-full bg-gradient-to-tr from-[#8a6d1c] to-[#d4af37] shadow-[5px_5px_10px_rgba(0,0,0,0.9)]"></div>
+                  <div className="w-6 h-6 md:w-12 md:h-12 border-[4px] md:border-[8px] border-[#2a2a2a] rounded-full bg-gradient-to-tr from-[#8a6d1c] to-[#d4af37] shadow-[5px_5px_10px_rgba(0,0,0,0.9)]"></div>
                 </div>
               </div>
             </motion.div>
@@ -157,11 +168,11 @@ const Home = () => {
               <div className="absolute inset-y-0 left-0 w-[2px] bg-black/80 z-20"></div>
 
               {/* Majestic Right Door Handle */}
-              <div className="relative left-12 md:left-24 z-30 drop-shadow-[-10px_10px_15px_rgba(0,0,0,0.8)]">
+              <div className="relative left-4 md:left-24 z-30 drop-shadow-[-10px_10px_15px_rgba(0,0,0,0.8)]">
                 {/* Backplate */}
-                <div className="w-12 h-48 md:w-16 md:h-64 bg-gradient-to-b from-[#b8860b] via-[#d4af37] to-[#8a6d1c] rounded-full flex justify-center items-center shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] border border-[#ffdf73]/20">
+                <div className="w-8 h-32 md:w-16 md:h-64 bg-gradient-to-b from-[#b8860b] via-[#d4af37] to-[#8a6d1c] rounded-full flex justify-center items-center shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] border border-[#ffdf73]/20">
                   {/* Pull Ring */}
-                  <div className="w-8 h-8 md:w-12 md:h-12 border-[6px] md:border-[8px] border-[#2a2a2a] rounded-full bg-gradient-to-tr from-[#8a6d1c] to-[#d4af37] shadow-[5px_5px_10px_rgba(0,0,0,0.9)]"></div>
+                  <div className="w-6 h-6 md:w-12 md:h-12 border-[4px] md:border-[8px] border-[#2a2a2a] rounded-full bg-gradient-to-tr from-[#8a6d1c] to-[#d4af37] shadow-[5px_5px_10px_rgba(0,0,0,0.9)]"></div>
                 </div>
               </div>
             </motion.div>
@@ -231,7 +242,8 @@ const Home = () => {
                       : { scale: 1, opacity: 1, filter: "brightness(1) blur(0px)", y: 0 }
                 }
                 transition={{ duration: expandingWindow === i ? 1.2 : 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className={`group relative h-[450px] w-full rounded-t-full rounded-b-lg overflow-hidden border-[6px] border-[#312015] transition-all duration-700 shadow-[0_15px_40px_rgba(0,0,0,0.8)] ${expandingWindow === null ? 'hover:border-brand-gold/80 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.4)]' : ''}`}
+                onClick={(e) => handleEnterWindow(e, arch.path, i)}
+                className={`cursor-pointer group relative h-[380px] md:h-[450px] w-full rounded-t-full rounded-b-lg overflow-hidden border-[6px] border-[#312015] transition-all duration-700 shadow-[0_15px_40px_rgba(0,0,0,0.8)] ${expandingWindow === null ? 'hover:border-brand-gold/80 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.4)]' : ''}`}
               >
                 {/* Arch Background Image */}
                 <div 
@@ -239,21 +251,24 @@ const Home = () => {
                   style={{ backgroundImage: `url(${arch.img})` }}
                 ></div>
                 
-                {/* Lighter Gradient Overlay for Better Image Visibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:from-black group-hover:via-black/40 transition-colors duration-500"></div>
+                {/* Mobile-Friendly Gradient Overlay for Better Image Visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 md:from-black/90 md:via-black/20 md:to-transparent group-hover:from-black group-hover:via-black/60 transition-colors duration-500"></div>
                 
                 {/* Content Container positioned at the bottom */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 text-center pb-12">
-                  <h3 className="text-2xl font-bold font-serif text-brand-gold mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-transform duration-500 group-hover:-translate-y-2">{arch.title}</h3>
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-center pb-10 md:pb-12">
+                  <h3 className="text-xl md:text-2xl font-bold font-serif text-brand-gold mb-2 md:mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-transform duration-500 group-hover:-translate-y-2">{arch.title}</h3>
                   
-                  {/* Hidden description that slides up on hover */}
-                  <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden translate-y-4 group-hover:translate-y-0">
-                    <p className="text-gray-200 font-light text-sm mb-6 leading-relaxed drop-shadow-md">{arch.desc}</p>
+                  {/* Visible on Mobile -> Hidden & Hover-Activated on Desktop */}
+                  <div className="h-auto opacity-100 md:h-0 md:opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden translate-y-0 md:translate-y-4 group-hover:translate-y-0 mt-3 md:mt-0">
+                    <p className="text-gray-200 font-light text-xs md:text-sm mb-5 leading-relaxed drop-shadow-md">{arch.desc}</p>
                     
                     {/* The navigation link styled as a royal button */}
                     <button 
-                      onClick={(e) => handleEnterWindow(e, arch.path, i)}
-                      className="inline-block px-8 py-3 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark rounded-full font-serif text-sm uppercase tracking-widest transition-colors duration-300 font-bold bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleEnterWindow(e, arch.path, i);
+                      }}
+                      className="pointer-events-none md:pointer-events-auto inline-block px-6 md:px-8 py-2 md:py-3 border border-brand-gold text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-dark rounded-full font-serif text-xs md:text-sm uppercase tracking-widest transition-colors duration-300 font-bold bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(212,175,55,0.2)]"
                     >
                       Enter
                     </button>
@@ -273,7 +288,7 @@ const Home = () => {
             <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-light mb-16">Royal Highlights</h2>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto h-[600px] items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 max-w-7xl mx-auto h-auto lg:h-[600px] items-center">
             {[
               { img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80', y: galleryY1 },
               { img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80', y: galleryY2 },
@@ -282,8 +297,8 @@ const Home = () => {
             ].map((item, i) => (
               <motion.div 
                 key={i} 
-                style={{ y: item.y }}
-                className="h-[300px] md:h-[450px] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] group relative overflow-hidden border-2 border-brand-gold/10 hover:border-brand-gold/40 transition-colors"
+                style={{ y: isMobile ? 0 : item.y }}
+                className="h-[300px] md:h-[450px] w-full rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] group relative overflow-hidden border-2 border-brand-gold/10 hover:border-brand-gold/40 transition-colors"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
