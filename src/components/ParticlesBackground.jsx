@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 const ParticlesBackground = () => {
-  // Generate 25 floating light particles
-  const particles = Array.from({ length: 25 }).map((_, i) => {
+  // Generate 10 floating light particles for optimal performance
+  const particles = Array.from({ length: 10 }).map((_, i) => {
     const size = Math.random() * 4 + 2; // 2px to 6px
     return {
       id: i,

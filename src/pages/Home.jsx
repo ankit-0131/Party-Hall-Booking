@@ -83,8 +83,8 @@ const Home = () => {
             style={{ scale: roomScale, willChange: "transform" }}
             className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none"
           >
-            {/* Extremely Royal Banquet Image */}
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+            {/* Extremely Royal Banquet Image - Added width limits for performance */}
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1200&fm=webp')] bg-cover bg-center"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-black/40"></div>
             
             {/* Soft Ambient Particles */}
@@ -116,24 +116,34 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          {/* HYPER-REALISTIC DOORS */}
+          {/* HYPER-REALISTIC DOORS - Performance Optimized */}
           <motion.div 
             style={{ scale: doorScale, opacity: doorOpacity, willChange: "transform, opacity" }}
             className="absolute inset-0 flex pointer-events-none z-30 perspective-1000"
           >
+            {/* Stationary Arch Wall Frame (Blocks corners, creates the tunnel illusion) */}
+            <div className="absolute inset-0 z-20 flex pointer-events-none">
+              <div className="w-1/2 h-full overflow-hidden">
+                <div className="w-full h-full rounded-tl-full shadow-[0_0_0_100vw_#070301]"></div>
+              </div>
+              <div className="w-1/2 h-full overflow-hidden">
+                <div className="w-full h-full rounded-tr-full shadow-[0_0_0_100vw_#070301]"></div>
+              </div>
+            </div>
+
             {/* Left Realistic Palace Door */}
             <motion.div 
-              style={{ rotateY: leftDoorRotate, transformOrigin: "left", willChange: "transform" }}
-              className="w-1/2 h-full bg-[#1b0d06] relative overflow-hidden flex justify-end items-center"
+              style={{ rotateY: leftDoorRotate, transformOrigin: "left", willChange: "transform", backfaceVisibility: "hidden" }}
+              className="w-1/2 h-full bg-[#1b0d06] relative overflow-hidden flex justify-end items-center rounded-tl-full z-10"
             >
               {/* High-res wood texture base */}
               <div 
-                className="absolute inset-y-0 right-0 w-[200%] bg-[url('https://images.unsplash.com/photo-1542038385-9875dbcb0279?auto=format&fit=crop&q=80')] bg-cover bg-left pointer-events-none opacity-40 mix-blend-luminosity"
+                className="absolute inset-y-0 right-0 w-[200%] bg-[url('https://images.unsplash.com/photo-1542038385-9875dbcb0279?auto=format&fit=crop&q=80&w=800&fm=webp')] bg-cover bg-left pointer-events-none opacity-40 mix-blend-luminosity"
               ></div>
               
               {/* Embossed Door Panel styling */}
-              <div className="absolute inset-8 right-2 border-[16px] border-[#0a0502]/80 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] rounded-sm pointer-events-none"></div>
-              <div className="absolute inset-16 right-8 border-8 border-brand-gold/10 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] rounded-sm pointer-events-none"></div>
+              <div className="absolute inset-4 md:inset-8 right-1 md:right-2 border-[8px] md:border-[16px] border-[#0a0502]/80 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] rounded-tl-full rounded-br-sm pointer-events-none"></div>
+              <div className="absolute inset-8 md:inset-16 right-4 md:right-8 border-4 md:border-8 border-brand-gold/10 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] rounded-tl-full rounded-br-sm pointer-events-none"></div>
 
               {/* Realistic Center Edge (Where doors meet) */}
               <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-black via-[#3a1d0f] to-transparent z-20"></div>
@@ -151,17 +161,17 @@ const Home = () => {
 
             {/* Right Realistic Palace Door */}
             <motion.div 
-              style={{ rotateY: rightDoorRotate, transformOrigin: "right", willChange: "transform" }}
-              className="w-1/2 h-full bg-[#1b0d06] relative overflow-hidden flex justify-start items-center"
+              style={{ rotateY: rightDoorRotate, transformOrigin: "right", willChange: "transform", backfaceVisibility: "hidden" }}
+              className="w-1/2 h-full bg-[#1b0d06] relative overflow-hidden flex justify-start items-center rounded-tr-full z-10"
             >
               {/* High-res wood texture base */}
               <div 
-                className="absolute inset-y-0 left-0 w-[200%] bg-[url('https://images.unsplash.com/photo-1542038385-9875dbcb0279?auto=format&fit=crop&q=80')] bg-cover bg-right pointer-events-none opacity-40 mix-blend-luminosity"
+                className="absolute inset-y-0 left-0 w-[200%] bg-[url('https://images.unsplash.com/photo-1542038385-9875dbcb0279?auto=format&fit=crop&q=80&w=800&fm=webp')] bg-cover bg-right pointer-events-none opacity-40 mix-blend-luminosity"
               ></div>
               
               {/* Embossed Door Panel styling */}
-              <div className="absolute inset-8 left-2 border-[16px] border-[#0a0502]/80 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] rounded-sm pointer-events-none"></div>
-              <div className="absolute inset-16 left-8 border-8 border-brand-gold/10 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] rounded-sm pointer-events-none"></div>
+              <div className="absolute inset-4 md:inset-8 left-1 md:left-2 border-[8px] md:border-[16px] border-[#0a0502]/80 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] rounded-tr-full rounded-bl-sm pointer-events-none"></div>
+              <div className="absolute inset-8 md:inset-16 left-4 md:left-8 border-4 md:border-8 border-brand-gold/10 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] rounded-tr-full rounded-bl-sm pointer-events-none"></div>
 
               {/* Realistic Center Edge (Where doors meet) */}
               <div className="absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-black via-[#3a1d0f] to-transparent z-20"></div>
@@ -224,10 +234,10 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {[
-              { title: 'The Royal Menu', path: '/menu', img: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80', desc: 'Savor Authentic North Indian Delicacies' },
-              { title: 'Grand Party Hall', path: '/hall', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80', desc: 'Discover Our Majestic Open-Air Venue' },
-              { title: 'Memory Gallery', path: '/gallery', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80', desc: 'Relive Golden Jubilee Celebrations' },
-              { title: 'Send Messengers', path: '/contact', img: 'https://images.unsplash.com/photo-1523588484191-c148e42fbe50?auto=format&fit=crop&q=80', desc: 'Contact Our Royal Event Planners' }
+              { title: 'The Royal Menu', path: '/menu', img: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Savor Authentic North Indian Delicacies' },
+              { title: 'Grand Party Hall', path: '/hall', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Discover Our Majestic Open-Air Venue' },
+              { title: 'Memory Gallery', path: '/gallery', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Relive Golden Jubilee Celebrations' },
+              { title: 'Send Messengers', path: '/contact', img: 'https://images.unsplash.com/photo-1523588484191-c148e42fbe50?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Contact Our Royal Event Planners' }
             ].map((arch, i) => (
               <motion.div 
                 key={arch.title}
@@ -236,10 +246,10 @@ const Home = () => {
                 viewport={{ once: true }}
                 animate={
                   expandingWindow === i 
-                    ? { scale: 12, opacity: 0, zIndex: 100, filter: "brightness(1.5) blur(10px)", y: 50 } 
+                    ? { scale: 12, opacity: 0, zIndex: 100, filter: "brightness(1.5)", y: 50, willChange: "transform, opacity" } // Removed blur for massive mobile performance gain
                     : expandingWindow !== null 
-                      ? { opacity: 0, scale: 0.8, filter: "brightness(0.5) blur(5px)" } 
-                      : { scale: 1, opacity: 1, filter: "brightness(1) blur(0px)", y: 0 }
+                      ? { opacity: 0, scale: 0.8, filter: "brightness(0.5)", willChange: "transform, opacity" } 
+                      : { scale: 1, opacity: 1, filter: "brightness(1)", y: 0, willChange: "transform, opacity" }
                 }
                 transition={{ duration: expandingWindow === i ? 1.2 : 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 onClick={(e) => handleEnterWindow(e, arch.path, i)}
@@ -288,21 +298,21 @@ const Home = () => {
             <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-light mb-16">Royal Highlights</h2>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 max-w-7xl mx-auto h-auto lg:h-[600px] items-center">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 lg:grid lg:grid-cols-4 lg:gap-6 max-w-7xl mx-auto h-[450px] lg:h-[600px] items-center custom-scrollbar pb-8 lg:pb-0 px-4">
             {[
-              { img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80', y: galleryY1 },
-              { img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80', y: galleryY2 },
-              { img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80', y: galleryY1 },
-              { img: 'https://images.unsplash.com/photo-1533174000276-2617f69b4e53?auto=format&fit=crop&q=80', y: galleryY2 }
+              { img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
+              { img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 },
+              { img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
+              { img: 'https://images.unsplash.com/photo-1533174000276-2617f69b4e53?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 }
             ].map((item, i) => (
               <motion.div 
                 key={i} 
-                style={{ y: isMobile ? 0 : item.y }}
-                className="h-[300px] md:h-[450px] w-full rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] group relative overflow-hidden border-2 border-brand-gold/10 hover:border-brand-gold/40 transition-colors"
+                style={{ y: isMobile ? 0 : item.y, willChange: "transform" }}
+                className="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-full h-[350px] md:h-[450px] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] group relative overflow-hidden border-2 border-brand-gold/10 hover:border-brand-gold/40 transition-colors"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: [0.4, 0.1, 0.5, 0.2][i] }}
               >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" 
