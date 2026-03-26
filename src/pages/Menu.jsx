@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../components/ScrollReveal';
+import ArchwayNav from '../components/ArchwayNav';
 
 // --- DATA ---
 const IMG_STARTER_V = "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=400&fm=webp";
@@ -165,6 +166,8 @@ const Menu = () => {
         </div>
       </section>
 
+      {/* 4. ARCHWAY CROSS-NAVIGATION */}
+      <ArchwayNav />
     </div>
   );
 };
