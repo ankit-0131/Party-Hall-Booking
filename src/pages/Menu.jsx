@@ -76,7 +76,7 @@ const Menu = () => {
               <motion.div
                 key={item.id}
                 layout
-                onClick={() => setActiveItem(item.id)}
+                onMouseEnter={() => setActiveItem(item.id)}
                 className={`relative rounded-3xl cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 will-change-transform ${
                   isActive ? "lg:w-[60%] w-full flex-grow basis-auto z-20 scale-100" : "lg:w-[10%] w-full h-24 lg:h-auto z-10 scale-[0.98] opacity-70 hover:opacity-100 hover:scale-[0.99]"
                 }`}
