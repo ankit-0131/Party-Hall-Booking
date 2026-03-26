@@ -1,136 +1,170 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../components/ScrollReveal';
 
-const foodItems = [
-  { id: 1, name: "Truffle Naan with Dal Makhani", cat: "Mains", desc: "A luxurious twist on a North Indian classic, featuring 24-hour slow-cooked black lentils paired with freshly baked truffle-infused butter naan.", price: "₹450", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80" },
-  { id: 2, name: "Saffron Paneer Tikka", cat: "Starters", desc: "Cottage cheese marinated in rich saffron, hung curd, and secret royal Awadhi spices, char-grilled in a clay oven.", price: "₹380", img: "https://images.unsplash.com/photo-1563805042-7684c8a9e9cb?auto=format&fit=crop&q=80" },
-  { id: 3, name: "Gourmet Gulab Jamun Tart", cat: "Desserts", desc: "A modern fusion masterpiece: warm, melt-in-your-mouth gulab jamuns nestled in a crisp buttery tart shell with pistachio cream.", price: "₹250", img: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80" },
-  { id: 4, name: "Smoked Butter Chicken", cat: "Mains", desc: "Our signature dish. Wood-smoked pulled chicken tikka simmered in a velvety tomato-fenugreek gravy, finished with fresh cream.", price: "₹550", img: "https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&q=80" },
-  { id: 5, name: "Avocado Dahi Puri", cat: "Chaat", desc: "A gourmet street food experience with crispy hollow puris filled with avocado mash, sweet yogurt, and tangy tamarind spheres.", price: "₹220", img: "https://images.unsplash.com/photo-1626804475297-41609ea0d4eb?auto=format&fit=crop&q=80" }
+// --- DATA ---
+const IMG_STARTER_V = "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_STARTER_NV = "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_MAIN_V = "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_MAIN_NV = "https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_BREAD = "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_RICE = "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_DESSERT = "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=400&fm=webp";
+const IMG_BEV = "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=400&fm=webp";
+
+const rawMenuData = [
+  ...['Paneer Tikka', 'Hara Bhara Kebab', 'Veg Spring Roll', 'Crispy Corn', 'Veg Manchurian (Dry)', 'Chilli Paneer', 'Aloo Tikki', 'Dahi Kebab', 'Cheese Balls', 'Veg Pakora', 'Mushroom Tikka', 'Corn Chaat'].map(n => ({ name: n, cat: 'Veg Starters', type: 'Veg', price: 250, img: IMG_STARTER_V })),
+  ...['Chicken Tikka', 'Tandoori Chicken', 'Chicken Malai Tikka', 'Chicken Seekh Kebab', 'Chilli Chicken', 'Chicken 65', 'Fish Tikka', 'Fish Fry', 'Prawns Fry', 'Mutton Seekh Kebab', 'Egg Pakora', 'Chicken Lollipop'].map(n => ({ name: n, cat: 'Non-Veg Starters', type: 'Non-Veg', price: 350, img: IMG_STARTER_NV })),
+  ...['Paneer Butter Masala', 'Shahi Paneer', 'Kadai Paneer', 'Paneer Lababdar', 'Palak Paneer', 'Paneer Tikka Masala', 'Paneer Do Pyaza', 'Paneer Pasanda', 'Dal Makhani', 'Dal Tadka', 'Dal Fry', 'Punjabi Chana Dal', 'Yellow Dal (Moong Dal)', 'Mix Veg Curry', 'Aloo Gobi', 'Aloo Matar', 'Dum Aloo', 'Jeera Aloo', 'Baingan Bharta', 'Bhindi Masala', 'Malai Kofta', 'Navratan Korma', 'Veg Handi', 'Veg Jalfrezi', 'Kofta Curry (Veg Kofta)'].map(n => ({ name: n, cat: 'Veg Mains', type: 'Veg', price: 300, img: IMG_MAIN_V })),
+  ...['Chicken Curry', 'Butter Chicken', 'Kadai Chicken', 'Chicken Tikka Masala', 'Chicken Do Pyaza', 'Chicken Korma', 'Chicken Handi', 'Chicken Changezi', 'Chicken Bhuna', 'Mutton Curry', 'Mutton Rogan Josh', 'Mutton Korma', 'Mutton Handi', 'Mutton Bhuna', 'Mutton Keema', 'Fish Curry', 'Fish Masala', 'Fish Fry (Gravy)', 'Egg Curry', 'Egg Masala', 'Anda Bhurji (Gravy)'].map(n => ({ name: n, cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: IMG_MAIN_NV })),
+  ...['Butter Naan', 'Plain Naan', 'Garlic Naan', 'Tandoori Roti', 'Butter Roti', 'Missi Roti', 'Lachha Paratha', 'Rumali Roti', 'Plain Paratha', 'Aloo Paratha', 'Paneer Paratha', 'Gobhi Paratha', 'Mixed Veg Paratha', 'Methi Paratha'].map(n => ({ name: n, cat: 'Breads', type: 'Veg', price: 60, img: IMG_BREAD })),
+  ...['Steam Rice', 'Jeera Rice', 'Veg Pulao', 'Peas Pulao', 'Kashmiri Pulao', 'Veg Biryani'].map(n => ({ name: n, cat: 'Rice', type: 'Veg', price: 150, img: IMG_RICE })),
+  ...['Hyderabadi Biryani (Non-Veg)'].map(n => ({ name: n, cat: 'Rice', type: 'Non-Veg', price: 350, img: IMG_RICE })),
+  ...['Gulab Jamun', 'Rasgulla', 'Rasmalai', 'Jalebi', 'Jalebi with Rabri', 'Kaju Katli', 'Besan Ladoo', 'Motichoor Ladoo', 'Ice Cream (Vanilla, Chocolate, Strawberry)', 'Kulfi (Malai / Pista)', 'Falooda', 'Gajar Ka Halwa', 'Moong Dal Halwa', 'Kheer (Rice Kheer)', 'Seviyan (Vermicelli Kheer)', 'Brownie with Ice Cream', 'Pastry (Chocolate / Pineapple)'].map(n => ({ name: n, cat: 'Desserts', type: 'Veg', price: 120, img: IMG_DESSERT })),
+  ...['Mineral Water', 'Soft Drinks (Coke, Pepsi, Sprite)', 'Fresh Lime Water', 'Fresh Lime Soda', 'Sweet Lassi', 'Salted Lassi', 'Mango Lassi', 'Buttermilk (Chaas)', 'Masala Tea', 'Green Tea', 'Coffee', 'Cold Coffee', 'Chocolate Shake', 'Strawberry Shake', 'Vanilla Shake', 'Orange Juice', 'Apple Juice', 'Pineapple Juice', 'Virgin Mojito', 'Blue Lagoon (Mocktail)', 'Fruit Punch', 'Cold Drink Dispenser (Buffet)'].map(n => ({ name: n, cat: 'Beverages', type: 'Veg', price: 80, img: IMG_BEV })),
 ];
 
-const marqueeImages = [
-  "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1610450948924-4f0eefe07137?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80", // duplicate for seamless loop
-  "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80",
+// Attach unique IDs to mapped items
+const MENU_ITEMS = rawMenuData.map((item, index) => ({
+  ...item,
+  id: `menu-item-${index}`,
+  desc: `Premium ${item.cat.toLowerCase()} dish crafted by our masterful chefs to elevate your royal celebration.`
+}));
+
+const TRUST_GALLERY = [
+  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600&fm=webp",
+  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600&fm=webp",
+  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600&fm=webp",
 ];
+
+const CATEGORIES = ['All', 'Veg Starters', 'Non-Veg Starters', 'Veg Mains', 'Non-Veg Mains', 'Breads', 'Rice', 'Desserts', 'Beverages'];
 
 const Menu = () => {
-  const [activeItem, setActiveItem] = useState(foodItems[0].id);
+  const [filterType, setFilterType] = useState('All');
+
+  // Filter optimization
+  const filteredMenuItems = useMemo(() => {
+    if (filterType === 'All') return MENU_ITEMS;
+    return MENU_ITEMS.filter(item => item.cat === filterType);
+  }, [filterType]);
 
   return (
-    <div className="bg-brand-bg min-h-screen overflow-hidden pb-20">
+    <div className="bg-[#0f0f0f] min-h-screen font-sans text-brand-light pb-0">
       
-      {/* Premium Marquee Header */}
-      <div className="relative pt-24 pb-12 bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-brand-dark z-10"></div>
-        
-        {/* Infinite Moving Food Items */}
-        <div className="absolute inset-0 flex items-center opacity-30">
-          <motion.div
-            className="flex gap-4 w-max"
-            animate={{ x: [0, -1000] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
-          >
-            {marqueeImages.map((src, i) => (
-              <div 
-                key={i} 
-                className="w-48 h-48 md:w-64 md:h-64 rounded-2xl bg-cover bg-center shrink-0 shadow-2xl" 
-                style={{ backgroundImage: `url(${src})` }}
-              ></div>
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="relative z-20 container mx-auto px-4 max-w-4xl pt-16">
-          <ScrollReveal direction="up" duration={0.4}>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-center text-brand-light mb-4 tracking-wide">
-              Culinary <span className="text-brand-gold italic">Masterpieces</span>
-            </h1>
-            <p className="text-center text-gray-300 mb-8 max-w-2xl mx-auto text-lg font-light leading-relaxed">
-              Elevate your celebration with our curated selection of premium individual dishes. Click on any delicacy below to explore its flavors.
-            </p>
+      {/* 1. HEADER & FILTER SECTION */}
+      <section className="pt-32 pb-12 px-4 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+          <ScrollReveal direction="up" duration={0.6}>
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-brand-gold mb-2 drop-shadow-md">The Royal Feast</h1>
+            <p className="text-gray-400 font-light text-lg">Explore our curated delicacies and build your perfect catering menu.</p>
           </ScrollReveal>
-        </div>
-      </div>
 
-      {/* Interactive Scaling Menu Section */}
-      <div className="container mx-auto px-4 max-w-6xl mt-16">
-        <div className="flex flex-col lg:flex-row gap-6 h-[70vh] min-h-[500px]">
-          {foodItems.map((item) => {
-            const isActive = activeItem === item.id;
-            
-            return (
-              <motion.div
-                key={item.id}
-                layout
-                onMouseEnter={() => setActiveItem(item.id)}
-                className={`relative rounded-3xl cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 will-change-transform ${
-                  isActive ? "lg:w-[60%] w-full flex-grow basis-auto z-20 scale-100" : "lg:w-[10%] w-full h-24 lg:h-auto z-10 scale-[0.98] opacity-70 hover:opacity-100 hover:scale-[0.99]"
-                }`}
-                style={{ transformOrigin: "center center" }}
-              >
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out"
-                  style={{ 
-                    backgroundImage: `url(${item.img})`,
-                    transform: isActive ? 'scale(1.05)' : 'scale(1)'
-                  }}
-                ></div>
+          {/* Sticky Category Filter Bar */}
+          <div className="sticky top-20 z-40 bg-[#1a1a1a]/95 backdrop-blur-xl p-2 rounded-2xl md:rounded-full border border-gray-800 w-full md:w-full lg:max-w-3xl shadow-2xl">
+            <div className="flex gap-2 overflow-x-auto custom-scrollbar pb-2 md:pb-0 px-2 lg:flex-wrap lg:justify-center">
+              {CATEGORIES.map(type => (
+                <button
+                  key={type}
+                  onClick={() => setFilterType(type)}
+                  className={`px-4 py-2 rounded-full whitespace-nowrap text-xs md:text-sm font-bold tracking-wide transition-all duration-300 ${filterType === type ? 'bg-brand-gold text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]' : 'bg-black/40 text-gray-400 hover:text-white hover:bg-black/60 border border-gray-800 hover:border-brand-gold/50'}`}
+                >
+                  {type === 'Veg Starters' || type === 'Veg Mains' || type === 'Breads' || type === 'Rice' || type === 'Desserts' || type === 'Beverages' 
+                    ? `🟢 ${type}` 
+                    : type === 'Non-Veg Starters' || type === 'Non-Veg Mains' 
+                      ? `🔴 ${type}` 
+                      : type}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 2. MENU GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredMenuItems.map(item => (
+            <motion.div 
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              key={item.id}
+              className="group relative bg-[#151515] rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] flex flex-col"
+            >
+              <div className="h-48 overflow-hidden relative">
+                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }}></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] hover:via-black/20 to-transparent transition-opacity duration-300"></div>
                 
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'bg-gradient-to-t from-black/90 via-black/40 to-transparent' : 'bg-black/60'}`}></div>
-
-                {/* Content */}
-                <AnimatePresence mode="wait">
-                  {isActive ? (
-                    <motion.div 
-                      key="active"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white"
-                    >
-                      <span className="inline-block px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/30 text-sm font-bold tracking-wider uppercase mb-4 backdrop-blur-md">
-                        {item.cat}
-                      </span>
-                      <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 leading-tight">{item.name}</h2>
-                      <p className="text-gray-200 text-lg md:text-xl max-w-2xl mb-6 font-light">{item.desc}</p>
-                      <div className="flex items-center gap-4">
-                        <span className="text-2xl md:text-3xl font-bold text-brand-gold">{item.price}</span>
-                        <span className="text-sm text-gray-400 uppercase tracking-widest">Per Plate</span>
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <motion.div 
-                      key="inactive"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="absolute inset-0 flex lg:flex-col items-center justify-center p-4 lg:p-0"
-                    >
-                      <h3 className="text-white font-serif font-bold text-xl lg:-rotate-90 whitespace-nowrap tracking-wider">{item.name}</h3>
-                    </motion.div>
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-widest text-brand-gold border border-brand-gold/30">
+                    {item.cat}
+                  </span>
+                  {item.type && (
+                    <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10" title={item.type}>
+                      {item.type === 'Veg' ? '🟢' : '🔴'}
+                    </span>
                   )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+
+              <div className="p-6 flex-grow flex flex-col">
+                <h3 className="text-xl font-serif font-bold text-gray-100 mb-2">{item.name}</h3>
+                <p className="text-gray-400 text-xs font-light leading-relaxed mb-6 flex-grow">{item.desc}</p>
+                
+                <div className="border-t border-gray-800 pt-4 mt-auto">
+                  <div className="flex flex-col">
+                    <span className="text-brand-gold font-bold text-xl">₹{item.price}</span>
+                    <span className="text-[10px] text-gray-500 uppercase tracking-widest">per plate</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </section>
+
+      {/* 3. TRUST & SOCIAL PROOF */}
+      <section className="py-24 px-4 bg-[#0a0a0a] border-t border-brand-gold/10 relative overflow-hidden mt-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Excellence in Every Detail</h2>
+            <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">We don’t just serve food; we craft royal culinary experiences. Our master chefs ensure every dish is a celebration of authentic flavors.</p>
+            
+            <div className="grid grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 className="text-4xl font-bold text-brand-gold mb-2">500+</h4>
+                <p className="text-sm tracking-widest uppercase text-gray-500">Royal Events Hosted</p>
+              </div>
+              <div>
+                <div className="flex items-center gap-1 mb-2">
+                  <span className="text-4xl font-bold text-brand-light">4.8</span>
+                  <span className="text-2xl text-brand-gold">★</span>
+                </div>
+                <p className="text-sm tracking-widest uppercase text-gray-500">From 120+ Reviews</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4 border border-brand-gold/20 bg-brand-gold/5 rounded-xl p-4 w-max shadow-lg">
+              <span className="text-brand-gold text-xl">👨‍🍳</span>
+              <span className="text-gray-300 text-sm tracking-wide">Professional 5-Star Catering Team</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4">
+              <img src={TRUST_GALLERY[0]} alt="Event setup" className="rounded-2xl w-full h-48 object-cover border-2 border-transparent hover:border-brand-gold/30 transition-colors shadow-[0_10px_30px_rgba(0,0,0,0.8)]" />
+              <img src={TRUST_GALLERY[1]} alt="Plating" className="rounded-2xl w-full h-64 object-cover border-2 border-transparent hover:border-brand-gold/30 transition-colors shadow-[0_10px_30px_rgba(0,0,0,0.8)]" />
+            </div>
+            <div className="flex flex-col gap-4 pt-8">
+              <img src={TRUST_GALLERY[2]} alt="Buffet layout" className="rounded-2xl w-full h-64 object-cover border-2 border-transparent hover:border-brand-gold/30 transition-colors shadow-[0_10px_30px_rgba(0,0,0,0.8)]" />
+              <div className="bg-[#151515] rounded-2xl h-48 border border-gray-800 flex items-center justify-center p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+                <span className="text-brand-gold font-serif italic text-xl">"A truly magical culinary journey."</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
