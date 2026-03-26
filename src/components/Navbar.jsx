@@ -1,23 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useBooking } from '../context/BookingContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const { openBookingForm } = useBooking();
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -29,53 +20,45 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-bg shadow-md border-b-4 border-brand-red transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[#110805]/95 via-[#1b0b06]/95 to-[#110805]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.8)] border-b border-brand-gold/40 transition-colors duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-brand-gold font-serif font-bold text-xl">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#b8860b] via-[#d4af37] to-[#8a6d1c] rounded-full flex items-center justify-center text-black font-serif font-black text-xl shadow-[0_0_15px_rgba(212,175,55,0.6)]">
             DP
           </div>
           <div>
-            <h1 className="text-xl font-bold font-serif text-brand-text leading-tight uppercase tracking-wide">
+            <h1 className="text-xl font-bold font-serif bg-gradient-to-r from-[#ffe58f] via-[#d4af37] to-[#b8860b] bg-clip-text text-transparent leading-tight uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
               Delhi Premier
             </h1>
-            <p className="text-xs text-brand-red tracking-widest font-semibold uppercase">Rooftop Hall</p>
+            <p className="text-xs text-[#ffb5b5] tracking-widest font-semibold uppercase opacity-90">Rooftop Palace</p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               to={link.path}
-              className="font-medium text-brand-text hover:text-brand-red transition-colors duration-200"
+              className="relative group py-2 font-medium text-brand-light font-serif tracking-wider hover:text-brand-gold transition-colors duration-300"
             >
               {link.name}
+              {/* Gold sliding underline animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent group-hover:w-full transition-all duration-300"></span>
             </Link>
           ))}
           <button 
-            onClick={() => setIsDark(!isDark)} 
-            className="text-brand-text hover:text-brand-red transition-colors"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-          <button 
             onClick={openBookingForm}
-            className="bg-brand-red text-brand-light px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition-colors duration-200 shadow-lg"
+            className="relative px-8 py-2 rounded-full overflow-hidden group shadow-[0_0_15px_rgba(201,24,74,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-all duration-500"
           >
-            Check Price
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-red to-red-900 group-hover:opacity-0 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8a6d1c] via-[#d4af37] to-[#8a6d1c] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10 text-white font-bold tracking-wide group-hover:text-black transition-colors duration-300">Reserve a Date</span>
           </button>
         </nav>
 
         {/* Mobile Nav Toggle */}
         <div className="md:hidden flex items-center gap-4">
-          <button 
-            onClick={() => setIsDark(!isDark)} 
-            className="text-brand-text transition-colors"
-          >
-            {isDark ? <Sun size={24} /> : <Moon size={24} />}
-          </button>
           <button className="text-brand-text" onClick={toggleMenu}>
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -90,7 +73,7 @@ const Navbar = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-brand-bg overflow-hidden shadow-inner absolute w-full"
+            className="md:hidden bg-brand-bg overflow-hidden shadow-inner absolute w-full border-b border-brand-gold/20"
           >
             <div className="flex flex-col py-4">
               {navLinks.map((link) => (
@@ -98,7 +81,7 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="px-6 py-3 border-b border-gray-100 text-brand-text font-medium active:bg-brand-bg"
+                  className="px-6 py-3 border-b border-brand-border/30 text-brand-text font-medium"
                 >
                   {link.name}
                 </Link>

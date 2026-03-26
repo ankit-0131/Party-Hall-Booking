@@ -47,7 +47,7 @@ const BookingModal = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-brand-bg rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative"
+            className="bg-brand-bg/95 backdrop-blur-xl border border-brand-gold/20 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.5)] w-full max-w-lg overflow-hidden relative"
           >
             {/* Header */}
             <div className="bg-brand-red p-6 text-white flex justify-between items-center">
@@ -69,7 +69,7 @@ const BookingModal = () => {
                         selected={bookingData.date}
                         onChange={(date) => updateBooking('date', date)}
                         minDate={new Date()}
-                        className="w-full border border-brand-border rounded-lg p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-card text-brand-text"
+                        className="w-full border border-brand-gold/20 rounded-xl p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-dark/50 text-brand-text"
                         placeholderText="Choose a date"
                       />
                     </div>
@@ -80,7 +80,7 @@ const BookingModal = () => {
                         min="1" 
                         value={bookingData.guests}
                         onChange={(e) => updateBooking('guests', parseInt(e.target.value) || 1)}
-                        className="w-full border border-brand-border rounded-lg p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-card text-brand-text"
+                        className="w-full border border-brand-gold/20 rounded-xl p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-dark/50 text-brand-text"
                       />
                     </div>
                     <div>
@@ -88,7 +88,7 @@ const BookingModal = () => {
                       <select 
                         value={bookingData.packageType}
                         onChange={(e) => updateBooking('packageType', e.target.value)}
-                        className="w-full border border-brand-border rounded-lg p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-card text-brand-text"
+                        className="w-full border border-brand-gold/20 rounded-xl p-3 focus:ring-2 focus:ring-brand-gold outline-none bg-brand-dark/50 text-brand-text"
                       >
                         {Object.entries(packages).map(([key, pkg]) => (
                           <option key={key} value={key}>{pkg.name} - ₹{pkg.pricePerPlate}/plate</option>
@@ -122,15 +122,15 @@ const BookingModal = () => {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
-                      <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full border border-brand-border rounded-lg p-3 bg-brand-card text-brand-text" />
+                      <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full border border-brand-gold/20 rounded-xl p-3 bg-brand-dark/50 text-brand-text outline-none focus:ring-2 focus:ring-brand-gold" />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
-                      <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full border border-brand-border rounded-lg p-3 bg-brand-card text-brand-text" />
+                      <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full border border-brand-gold/20 rounded-xl p-3 bg-brand-dark/50 text-brand-text outline-none focus:ring-2 focus:ring-brand-gold" />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
-                      <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full border border-brand-border rounded-lg p-3 bg-brand-card text-brand-text" />
+                      <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full border border-brand-gold/20 rounded-xl p-3 bg-brand-dark/50 text-brand-text outline-none focus:ring-2 focus:ring-brand-gold" />
                     </div>
 
                     <div className="flex gap-4 mt-6">

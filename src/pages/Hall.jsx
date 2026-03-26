@@ -61,7 +61,7 @@ const Hall = () => {
               <motion.div 
                 key={event.title}
                 whileHover={{ y: -5 }}
-                className="bg-brand-card rounded-xl overflow-hidden shadow-lg border border-brand-border"
+                className="bg-brand-card/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-brand-gold/20"
               >
                 <div className="h-40 bg-cover bg-center" style={{ backgroundImage: `url(${event.img})` }}></div>
                 <div className="p-4">

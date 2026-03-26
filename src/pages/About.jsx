@@ -14,7 +14,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <div className="bg-brand-card p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative">
+          <div className="bg-brand-card/80 backdrop-blur-md p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-brand-gold/20 relative">
             {/* Decorative background accent */}
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-brand-gold/10 rounded-full blur-2xl"></div>
             
@@ -49,15 +49,15 @@ const About = () => {
 
           {/* Image Collage */}
           <div className="relative h-full min-h-[500px] lg:min-h-[700px]">
-            <ScrollReveal direction="left" duration={0.6} className="absolute top-0 right-0 w-3/4 h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10">
+            <ScrollReveal direction="left" duration={0.6} className="absolute top-0 right-0 w-3/4 h-[55%] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/20 z-10">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80')] bg-cover bg-center hover:scale-105 transition-transform duration-700"></div>
             </ScrollReveal>
             
-            <ScrollReveal direction="up" delay={0.2} duration={0.6} className="absolute bottom-4 left-0 w-2/3 h-[45%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20">
+            <ScrollReveal direction="up" delay={0.2} duration={0.6} className="absolute bottom-4 left-0 w-2/3 h-[45%] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/20 z-20">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1626804475297-41609ea0d4eb?auto=format&fit=crop&q=80')] bg-cover bg-center hover:scale-105 transition-transform duration-700"></div>
             </ScrollReveal>
             
-            <ScrollReveal direction="left" delay={0.4} duration={0.6} className="absolute bottom-12 right-4 w-[40%] h-[35%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-30">
+            <ScrollReveal direction="left" delay={0.4} duration={0.6} className="absolute bottom-12 right-4 w-[40%] h-[35%] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-brand-gold/20 z-30">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80')] bg-cover bg-center hover:scale-105 transition-transform duration-700"></div>
             </ScrollReveal>
 

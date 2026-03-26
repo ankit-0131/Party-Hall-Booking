@@ -21,7 +21,7 @@ const Contact = () => {
           <ScrollReveal 
             direction="left" 
             duration={0.5}
-            className="space-y-8 bg-brand-card p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100"
+            className="space-y-8 bg-brand-card/80 backdrop-blur-md p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-brand-gold/20"
           >
             <h2 className="text-2xl font-serif font-bold text-brand-text">Get in Touch</h2>
             
