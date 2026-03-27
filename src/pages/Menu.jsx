@@ -81,7 +81,7 @@ const Menu = () => {
         </div>
 
         {/* 2. MENU GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
           {filteredMenuItems.map(item => (
             <motion.div 
               layout
@@ -90,32 +90,32 @@ const Menu = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               key={item.id}
-              className="group relative bg-[#151515] rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] flex flex-col"
+              className="group relative bg-[#151515] rounded-xl md:rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] flex flex-col"
             >
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-28 md:h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }}></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151515] hover:via-black/20 to-transparent transition-opacity duration-300"></div>
                 
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-widest text-brand-gold border border-brand-gold/30">
+                <div className="absolute top-2 left-2 md:top-4 md:left-4 flex gap-1 md:gap-2">
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 bg-black/60 backdrop-blur-sm rounded-full text-[8px] md:text-xs font-bold uppercase tracking-widest text-brand-gold border border-brand-gold/30 truncate max-w-[80px] md:max-w-none">
                     {item.cat}
                   </span>
                   {item.type && (
-                    <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10" title={item.type}>
+                    <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 text-[8px] md:text-xs" title={item.type}>
                       {item.type === 'Veg' ? '🟢' : '🔴'}
                     </span>
                   )}
                 </div>
               </div>
 
-              <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-serif font-bold text-gray-100 mb-2">{item.name}</h3>
-                <p className="text-gray-400 text-xs font-light leading-relaxed mb-6 flex-grow">{item.desc}</p>
+              <div className="p-3 md:p-6 flex-grow flex flex-col">
+                <h3 className="text-[13px] md:text-xl font-serif font-bold text-gray-100 mb-1 md:mb-2 line-clamp-2 leading-snug">{item.name}</h3>
+                <p className="text-gray-400 text-xs font-light leading-relaxed mb-6 flex-grow hidden md:block">{item.desc}</p>
                 
-                <div className="border-t border-gray-800 pt-4 mt-auto">
+                <div className="border-t border-gray-800 pt-2 md:pt-4 mt-auto">
                   <div className="flex flex-col">
-                    <span className="text-brand-gold font-bold text-xl">₹{item.price}</span>
-                    <span className="text-[10px] text-gray-500 uppercase tracking-widest">per plate</span>
+                    <span className="text-brand-gold font-bold text-sm md:text-xl">₹{item.price}</span>
+                    <span className="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest">per plate</span>
                   </div>
                 </div>
               </div>

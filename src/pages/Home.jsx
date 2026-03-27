@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { useBooking } from '../context/BookingContext';
 import UrgencyBanner from '../components/UrgencyBanner';
 import ScrollReveal from '../components/ScrollReveal';
@@ -10,6 +10,12 @@ import ArchwayNav from '../components/ArchwayNav';
 const Home = () => {
   const { openBookingForm } = useBooking();
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
 
   // Scroll logic for the realistic POV walk-through
   const containerRef = useRef(null);
@@ -35,8 +41,14 @@ const Home = () => {
   
   // The room comes into focus
   const roomScale = useTransform(smoothProgress, [0, 1], [1.15, 1]);
-  const heroOpacity = useTransform(smoothProgress, [0.4, 0.9], [0, 1]);
-  const heroY = useTransform(smoothProgress, [0.4, 0.9], [30, 0]);
+  
+  // Welcome Text Sequence (Appears First)
+  const welcomeOpacity = useTransform(smoothProgress, [0.2, 0.6], [0, 1]);
+  const welcomeY = useTransform(smoothProgress, [0.2, 0.6], [30, 0]);
+
+  // Main Text Sequence (Appears Second)
+  const heroOpacity = useTransform(smoothProgress, [0.6, 0.9], [0, 1]);
+  const heroY = useTransform(smoothProgress, [0.6, 0.9], [30, 0]);
   
   const scrollIndicatorOpacity = useTransform(smoothProgress, [0, 0.1], [1, 0]);
 
@@ -51,6 +63,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col min-h-screen font-sans bg-brand-bg relative overflow-x-clip">
+
       <UrgencyBanner />
       
       {/* POV Walk-Through Scroll Container */}
@@ -71,29 +84,43 @@ const Home = () => {
             <ParticlesBackground />
 
             {/* Hero Text Inside the Room */}
-            <motion.div 
-              style={{ opacity: heroOpacity, y: heroY, willChange: "transform, opacity" }}
-              className="relative z-10 text-center px-4 max-w-5xl mt-20 pointer-events-auto"
-            >
-              <p className="text-brand-gold font-serif text-lg md:text-2xl tracking-[0.3em] uppercase mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                Welcome to
-              </p>
-              <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-brand-light mb-8 leading-tight drop-shadow-[0_0_20px_rgba(0,0,0,1)]">
-                Royal Experience
-              </h1>
+            <div className="relative z-10 text-center px-4 max-w-5xl mt-20 pointer-events-auto flex flex-col items-center">
               
-              <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-3xl mx-auto drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
-                Step into a world of majestic celebrations. Feast like royalty with an authentic North Indian spread beneath the starlit skyline.
-              </p>
-              
-              <button 
-                onClick={openBookingForm}
-                className="group relative px-12 py-5 bg-brand-red text-white rounded-full font-bold text-xl overflow-hidden shadow-[0_0_40px_rgba(201,24,74,0.6)] hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] transition-all duration-500 hover:-translate-y-1"
+              {/* Sequence 1: Welcome Appears First */}
+              <motion.div 
+                style={{ opacity: welcomeOpacity, y: welcomeY, willChange: "transform, opacity" }}
+                className="mb-6"
               >
-                <div className="absolute inset-0 bg-brand-gold w-0 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
-                <span className="relative z-10 text-white font-serif tracking-wide border-b border-transparent group-hover:border-white transition-all">Claim Your Throne</span>
-              </button>
-            </motion.div>
+                <p className="text-brand-gold font-serif text-2xl md:text-4xl tracking-[0.3em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  Welcome
+                </p>
+                <p className="text-gray-300 font-light text-sm md:text-lg tracking-widest uppercase mt-2 drop-shadow-md">
+                  To Delhi Premier
+                </p>
+              </motion.div>
+
+              {/* Sequence 2: Royal Experience Appears Second */}
+              <motion.div 
+                style={{ opacity: heroOpacity, y: heroY, willChange: "transform, opacity" }}
+                className="flex flex-col items-center"
+              >
+                <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-brand-light mb-8 leading-tight drop-shadow-[0_0_20px_rgba(0,0,0,1)]">
+                  Royal Experience
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-3xl mx-auto drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+                  Step into a world of majestic celebrations. Feast like royalty with an authentic North Indian spread beneath the starlit skyline.
+                </p>
+                
+                <button 
+                  onClick={openBookingForm}
+                  className="group relative px-12 py-5 bg-brand-red text-white rounded-full font-bold text-xl overflow-hidden shadow-[0_0_40px_rgba(201,24,74,0.6)] hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] transition-all duration-500 hover:-translate-y-1"
+                >
+                  <div className="absolute inset-0 bg-brand-gold w-0 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
+                  <span className="relative z-10 text-white font-serif tracking-wide border-b border-transparent group-hover:border-white transition-all">Claim Your Throne</span>
+                </button>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* HYPER-REALISTIC DOORS - Performance Optimized */}
