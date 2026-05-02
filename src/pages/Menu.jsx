@@ -4,25 +4,78 @@ import ScrollReveal from '../components/ScrollReveal';
 import ArchwayNav from '../components/ArchwayNav';
 
 // --- DATA ---
-const IMG_STARTER_V = "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_STARTER_NV = "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_MAIN_V = "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_MAIN_NV = "https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_BREAD = "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_RICE = "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_DESSERT = "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=400&fm=webp";
-const IMG_BEV = "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=400&fm=webp";
-
 const rawMenuData = [
-  ...['Paneer Tikka', 'Hara Bhara Kebab', 'Veg Spring Roll', 'Crispy Corn', 'Veg Manchurian (Dry)', 'Chilli Paneer', 'Aloo Tikki', 'Dahi Kebab', 'Cheese Balls', 'Veg Pakora', 'Mushroom Tikka', 'Corn Chaat'].map(n => ({ name: n, cat: 'Veg Starters', type: 'Veg', price: 250, img: IMG_STARTER_V })),
-  ...['Chicken Tikka', 'Tandoori Chicken', 'Chicken Malai Tikka', 'Chicken Seekh Kebab', 'Chilli Chicken', 'Chicken 65', 'Fish Tikka', 'Fish Fry', 'Prawns Fry', 'Mutton Seekh Kebab', 'Egg Pakora', 'Chicken Lollipop'].map(n => ({ name: n, cat: 'Non-Veg Starters', type: 'Non-Veg', price: 350, img: IMG_STARTER_NV })),
-  ...['Paneer Butter Masala', 'Shahi Paneer', 'Kadai Paneer', 'Paneer Lababdar', 'Palak Paneer', 'Paneer Tikka Masala', 'Paneer Do Pyaza', 'Paneer Pasanda', 'Dal Makhani', 'Dal Tadka', 'Dal Fry', 'Punjabi Chana Dal', 'Yellow Dal (Moong Dal)', 'Mix Veg Curry', 'Aloo Gobi', 'Aloo Matar', 'Dum Aloo', 'Jeera Aloo', 'Baingan Bharta', 'Bhindi Masala', 'Malai Kofta', 'Navratan Korma', 'Veg Handi', 'Veg Jalfrezi', 'Kofta Curry (Veg Kofta)'].map(n => ({ name: n, cat: 'Veg Mains', type: 'Veg', price: 300, img: IMG_MAIN_V })),
-  ...['Chicken Curry', 'Butter Chicken', 'Kadai Chicken', 'Chicken Tikka Masala', 'Chicken Do Pyaza', 'Chicken Korma', 'Chicken Handi', 'Chicken Changezi', 'Chicken Bhuna', 'Mutton Curry', 'Mutton Rogan Josh', 'Mutton Korma', 'Mutton Handi', 'Mutton Bhuna', 'Mutton Keema', 'Fish Curry', 'Fish Masala', 'Fish Fry (Gravy)', 'Egg Curry', 'Egg Masala', 'Anda Bhurji (Gravy)'].map(n => ({ name: n, cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: IMG_MAIN_NV })),
-  ...['Butter Naan', 'Plain Naan', 'Garlic Naan', 'Tandoori Roti', 'Butter Roti', 'Missi Roti', 'Lachha Paratha', 'Rumali Roti', 'Plain Paratha', 'Aloo Paratha', 'Paneer Paratha', 'Gobhi Paratha', 'Mixed Veg Paratha', 'Methi Paratha'].map(n => ({ name: n, cat: 'Breads', type: 'Veg', price: 60, img: IMG_BREAD })),
-  ...['Steam Rice', 'Jeera Rice', 'Veg Pulao', 'Peas Pulao', 'Kashmiri Pulao', 'Veg Biryani'].map(n => ({ name: n, cat: 'Rice', type: 'Veg', price: 150, img: IMG_RICE })),
-  ...['Hyderabadi Biryani (Non-Veg)'].map(n => ({ name: n, cat: 'Rice', type: 'Non-Veg', price: 350, img: IMG_RICE })),
-  ...['Gulab Jamun', 'Rasgulla', 'Rasmalai', 'Jalebi', 'Jalebi with Rabri', 'Kaju Katli', 'Besan Ladoo', 'Motichoor Ladoo', 'Ice Cream (Vanilla, Chocolate, Strawberry)', 'Kulfi (Malai / Pista)', 'Falooda', 'Gajar Ka Halwa', 'Moong Dal Halwa', 'Kheer (Rice Kheer)', 'Seviyan (Vermicelli Kheer)', 'Brownie with Ice Cream', 'Pastry (Chocolate / Pineapple)'].map(n => ({ name: n, cat: 'Desserts', type: 'Veg', price: 120, img: IMG_DESSERT })),
-  ...['Mineral Water', 'Soft Drinks (Coke, Pepsi, Sprite)', 'Fresh Lime Water', 'Fresh Lime Soda', 'Sweet Lassi', 'Salted Lassi', 'Mango Lassi', 'Buttermilk (Chaas)', 'Masala Tea', 'Green Tea', 'Coffee', 'Cold Coffee', 'Chocolate Shake', 'Strawberry Shake', 'Vanilla Shake', 'Orange Juice', 'Apple Juice', 'Pineapple Juice', 'Virgin Mojito', 'Blue Lagoon (Mocktail)', 'Fruit Punch', 'Cold Drink Dispenser (Buffet)'].map(n => ({ name: n, cat: 'Beverages', type: 'Veg', price: 80, img: IMG_BEV })),
+  // Veg Starters
+  { name: 'Paneer Tikka', cat: 'Veg Starters', type: 'Veg', price: 250, img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Hara Bhara Kebab', cat: 'Veg Starters', type: 'Veg', price: 250, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Veg Spring Roll', cat: 'Veg Starters', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1606525437679-03e6221c97a5?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Crispy Corn', cat: 'Veg Starters', type: 'Veg', price: 200, img: 'https://images.unsplash.com/photo-1626804475297-41609ea004eb?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Veg Manchurian', cat: 'Veg Starters', type: 'Veg', price: 240, img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chilli Paneer', cat: 'Veg Starters', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Dahi Kebab', cat: 'Veg Starters', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  
+  // Non-Veg Starters
+  { name: 'Chicken Tikka', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 350, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Tandoori Chicken', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 380, img: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken Seekh Kebab', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 360, img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chilli Chicken', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 340, img: 'https://images.unsplash.com/photo-1626296715024-e659b8cf1cb7?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken 65', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 330, img: 'https://images.unsplash.com/photo-1651750242138-04149021a8a2?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Fish Tikka', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 400, img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Mutton Seekh Kebab', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 420, img: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  
+  // Veg Mains
+  { name: 'Paneer Butter Masala', cat: 'Veg Mains', type: 'Veg', price: 300, img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Dal Makhani', cat: 'Veg Mains', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kadai Paneer', cat: 'Veg Mains', type: 'Veg', price: 310, img: 'https://images.unsplash.com/photo-1633383718081-22ac93e3db65?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Malai Kofta', cat: 'Veg Mains', type: 'Veg', price: 320, img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Mix Veg Curry', cat: 'Veg Mains', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Dal Tadka', cat: 'Veg Mains', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c4?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Palak Paneer', cat: 'Veg Mains', type: 'Veg', price: 290, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  
+  // Non-Veg Mains
+  { name: 'Butter Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 420, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Mutton Rogan Josh', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 550, img: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken Tikka Masala', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 460, img: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kadai Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 440, img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Fish Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 480, img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken Korma', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=400&fm=webp' },
+
+  // Breads
+  { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Garlic Naan', cat: 'Breads', type: 'Veg', price: 70, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Tandoori Roti', cat: 'Breads', type: 'Veg', price: 40, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Lachha Paratha', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Missi Roti', cat: 'Breads', type: 'Veg', price: 45, img: 'https://images.unsplash.com/photo-1590846406792-0adc7f138fbc?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Rumali Roti', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Aloo Paratha', cat: 'Breads', type: 'Veg', price: 80, img: 'https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  
+  // Rice
+  { name: 'Veg Biryani', cat: 'Rice', type: 'Veg', price: 250, img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Hyderabadi Biryani (Non-Veg)', cat: 'Rice', type: 'Non-Veg', price: 350, img: 'https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Jeera Rice', cat: 'Rice', type: 'Veg', price: 160, img: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Steam Rice', cat: 'Rice', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Veg Pulao', cat: 'Rice', type: 'Veg', price: 200, img: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Peas Pulao', cat: 'Rice', type: 'Veg', price: 180, img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kashmiri Pulao', cat: 'Rice', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=400&fm=webp' },
+
+  // Desserts
+  { name: 'Gulab Jamun', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Rasmalai', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1618608298711-b0db43e74c86?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Gajar Ka Halwa', cat: 'Desserts', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Jalebi with Rabri', cat: 'Desserts', type: 'Veg', price: 130, img: 'https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Ice Cream (Vanilla/Choc)', cat: 'Desserts', type: 'Veg', price: 100, img: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Moong Dal Halwa', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1624300629298-e9ad39c5952f?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kulfi (Malai/Pista)', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=400&fm=webp' },
+
+  // Beverages
+  { name: 'Mocktails', cat: 'Beverages', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Fresh Lime Soda', cat: 'Beverages', type: 'Veg', price: 90, img: 'https://images.unsplash.com/photo-1587848604770-49e05f6e91f0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Sweet Lassi', cat: 'Beverages', type: 'Veg', price: 110, img: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Cold Coffee', cat: 'Beverages', type: 'Veg', price: 130, img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Soft Drinks', cat: 'Beverages', type: 'Veg', price: 80, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Masala Tea', cat: 'Beverages', type: 'Veg', price: 60, img: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Fruit Juices', cat: 'Beverages', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&q=80&w=400&fm=webp' }
 ];
 
 // Attach unique IDs to mapped items
@@ -94,7 +147,7 @@ const Menu = () => {
             >
               <div className="h-28 md:h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }}></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] hover:via-black/20 to-transparent transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-300"></div>
                 
                 <div className="absolute top-2 left-2 md:top-4 md:left-4 flex gap-1 md:gap-2">
                   <span className="px-2 py-0.5 md:px-3 md:py-1 bg-black/60 backdrop-blur-sm rounded-full text-[8px] md:text-xs font-bold uppercase tracking-widest text-brand-gold border border-brand-gold/30 truncate max-w-[80px] md:max-w-none">
