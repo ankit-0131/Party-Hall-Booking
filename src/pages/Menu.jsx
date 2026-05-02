@@ -42,7 +42,7 @@ const rawMenuData = [
   { name: 'Chicken Korma', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // Breads
-  { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://unsplash.com/photos/a-bowl-filled-with-pita-bread-and-a-fork-h7cZs0aFicw' },
+  { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://images.unsplash.com/photo-1697155406014-04dc649b0953?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { name: 'Garlic Naan', cat: 'Breads', type: 'Veg', price: 70, img: 'https://unsplash.com/photos/sliced-pizza-on-white-plate-Nt_wnMl7Siw' },
   { name: 'Tandoori Roti', cat: 'Breads', type: 'Veg', price: 40, img: 'https://unsplash.com/photos/a-plate-of-flat-bread-on-a-wooden-table-LK_LW1qgqxI' },
   { name: 'Lachha Paratha', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1612548127023-b29161bd6f9a?auto=format&fit=crop&q=80&w=400&fm=webp' },
