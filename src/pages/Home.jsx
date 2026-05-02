@@ -243,10 +243,10 @@ const Home = () => {
           
           <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 lg:grid lg:grid-cols-4 lg:gap-6 max-w-7xl mx-auto h-[450px] lg:h-[600px] items-center custom-scrollbar pb-8 lg:pb-0 px-4">
             {[
-              { img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
-              { img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 },
-              { img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
-              { img: 'https://images.unsplash.com/photo-1533174000276-2617f69b4e53?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 }
+              { img: 'https://images.unsplash.com/photo-1736751402467-3cbcda1c6517?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
+              { img: 'https://images.unsplash.com/photo-1633509877627-a923e210d48e?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 },
+              { img: 'https://images.unsplash.com/photo-1766164416026-1a823688d106?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY1 },
+              { img: 'https://images.unsplash.com/photo-1747153634172-8caa81327ca6?auto=format&fit=crop&q=80&w=600&fm=webp', y: galleryY2 }
             ].map((item, i) => (
               <motion.div 
                 key={i} 

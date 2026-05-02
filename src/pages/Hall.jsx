@@ -17,7 +17,7 @@ const Hall = () => {
             duration={0.5}
             className="rounded-2xl overflow-hidden shadow-2xl h-96 relative bg-brand-dark"
           >
-             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-80"></div>
+             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1769812343590-485512e27838?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-80"></div>
           </ScrollReveal>
           
           <ScrollReveal
