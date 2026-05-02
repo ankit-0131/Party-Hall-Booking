@@ -35,7 +35,7 @@ const ArchwayNav = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <ScrollReveal direction="up" duration={0.6}>
           <p className="text-brand-gold text-sm tracking-widest uppercase mb-2 font-bold drop-shadow-lg">Begin Your Journey</p>
-          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-light mb-16 drop-shadow-xl">Explore The Palace</h2>
+          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-light mb-16 drop-shadow-xl">Explore More</h2>
         </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -63,7 +63,7 @@ const ArchwayNav = () => {
               ></div>
               
               {/* Mobile-Friendly Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 md:from-black/90 md:via-black/20 md:to-transparent group-hover:from-black group-hover:via-black/60 transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/70 group-hover:via-black/30 transition-colors duration-500"></div>
               
               {/* Content Container */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-center pb-10 md:pb-12">

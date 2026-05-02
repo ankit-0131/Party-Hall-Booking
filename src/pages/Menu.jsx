@@ -43,11 +43,11 @@ const rawMenuData = [
 
   // Breads
   { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  { name: 'Garlic Naan', cat: 'Breads', type: 'Veg', price: 70, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  { name: 'Tandoori Roti', cat: 'Breads', type: 'Veg', price: 40, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  { name: 'Lachha Paratha', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Garlic Naan', cat: 'Breads', type: 'Veg', price: 70, img: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Tandoori Roti', cat: 'Breads', type: 'Veg', price: 40, img: 'https://images.unsplash.com/photo-1595286466986-74fc21941656?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Lachha Paratha', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1626200419189-39ca1e27a1fc?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Missi Roti', cat: 'Breads', type: 'Veg', price: 45, img: 'https://images.unsplash.com/photo-1590846406792-0adc7f138fbc?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  { name: 'Rumali Roti', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Rumali Roti', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1573333515743-bc9cb4143328?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Aloo Paratha', cat: 'Breads', type: 'Veg', price: 80, img: 'https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&q=80&w=400&fm=webp' },
   
   // Rice
