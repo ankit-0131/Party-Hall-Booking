@@ -80,7 +80,7 @@ const rawMenuData = [
 
   { name: 'Jeera Rice', cat: 'Rice', type: 'Veg', price: 160, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ49zpG69_kA9rY1gWe0x2_3D-TzxFI0Ekrzg&s' },
 
-  { name: 'Steam Rice', cat: 'Rice', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1536304929831-ehttps://plus.unsplash.com/premium_photo-1675814316651-3ce3c6409922?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3' },
+  { name: 'Steam Rice', cat: 'Rice', type: 'Veg', price: 140, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREPXSkOW9ySGpr-F95EeAWBXTGWOipm_nm0Q&s' },
 
   { name: 'Veg Pulao', cat: 'Rice', type: 'Veg', price: 200, img: 'https://www.indianveggiedelight.com/wp-content/uploads/2019/07/veg-pulao-featured.jpg' },
 
@@ -91,7 +91,7 @@ const rawMenuData = [
   // Desserts
   { name: 'Gulab Jamun', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1666190092159-3171cf0fbb12?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
-  { name: 'Rasmalai', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1618608298711-b0db43e74c86?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Rasmalai', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://www.cookingcarnival.com/wp-content/uploads/2020/06/Rasmalai-500x375.jpg' },
 
   // { name: 'Gajar Ka Halwa', cat: 'Desserts', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
