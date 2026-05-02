@@ -13,7 +13,7 @@ const rawMenuData = [
   { name: 'Veg Manchurian', cat: 'Veg Starters', type: 'Veg', price: 240, img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Chilli Paneer', cat: 'Veg Starters', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Dahi Kebab', cat: 'Veg Starters', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  
+
   // Non-Veg Starters
   { name: 'Chicken Tikka', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 350, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Tandoori Chicken', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 380, img: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&q=80&w=400&fm=webp' },
@@ -22,7 +22,7 @@ const rawMenuData = [
   { name: 'Chicken 65', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 330, img: 'https://images.unsplash.com/photo-1651750242138-04149021a8a2?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Fish Tikka', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 400, img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Mutton Seekh Kebab', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 420, img: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  
+
   // Veg Mains
   { name: 'Paneer Butter Masala', cat: 'Veg Mains', type: 'Veg', price: 300, img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc0?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Dal Makhani', cat: 'Veg Mains', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=400&fm=webp' },
@@ -31,7 +31,7 @@ const rawMenuData = [
   { name: 'Mix Veg Curry', cat: 'Veg Mains', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Dal Tadka', cat: 'Veg Mains', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c4?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Palak Paneer', cat: 'Veg Mains', type: 'Veg', price: 290, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  
+
   // Non-Veg Mains
   { name: 'Butter Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Chicken Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 420, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
@@ -42,14 +42,14 @@ const rawMenuData = [
   { name: 'Chicken Korma', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // Breads
-  { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://unsplash.com/photos/a-basket-of-pita-bread-with-a-fork-in-it-eNKvr0V43fI' },
+  { name: 'Butter Naan', cat: 'Breads', type: 'Veg', price: 60, img: 'https://unsplash.com/photos/a-bowl-filled-with-pita-bread-and-a-fork-h7cZs0aFicw' },
   { name: 'Garlic Naan', cat: 'Breads', type: 'Veg', price: 70, img: 'https://unsplash.com/photos/sliced-pizza-on-white-plate-Nt_wnMl7Siw' },
   { name: 'Tandoori Roti', cat: 'Breads', type: 'Veg', price: 40, img: 'https://unsplash.com/photos/a-plate-of-flat-bread-on-a-wooden-table-LK_LW1qgqxI' },
   { name: 'Lachha Paratha', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1612548127023-b29161bd6f9a?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Missi Roti', cat: 'Breads', type: 'Veg', price: 45, img: 'https://images.unsplash.com/photo-1697155406014-04dc649b0953?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Rumali Roti', cat: 'Breads', type: 'Veg', price: 50, img: 'https://images.unsplash.com/photo-1598785244280-7a428600d053?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Aloo Paratha', cat: 'Breads', type: 'Veg', price: 80, img: 'https://images.unsplash.com/photo-1655979284091-eea0e93405ee?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  
+
   // Rice
   { name: 'Veg Biryani', cat: 'Rice', type: 'Veg', price: 250, img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=400&fm=webp' },
   { name: 'Hyderabadi Biryani (Non-Veg)', cat: 'Rice', type: 'Non-Veg', price: 350, img: 'https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&q=80&w=400&fm=webp' },
@@ -104,7 +104,7 @@ const Menu = () => {
 
   return (
     <div className="bg-[#0f0f0f] min-h-screen font-sans text-brand-light pb-0">
-      
+
       {/* 1. HEADER & FILTER SECTION */}
       <section className="pt-32 pb-12 px-4 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
@@ -122,10 +122,10 @@ const Menu = () => {
                   onClick={() => setFilterType(type)}
                   className={`px-4 py-2 rounded-full whitespace-nowrap text-xs md:text-sm font-bold tracking-wide transition-all duration-300 ${filterType === type ? 'bg-brand-gold text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]' : 'bg-black/40 text-gray-400 hover:text-white hover:bg-black/60 border border-gray-800 hover:border-brand-gold/50'}`}
                 >
-                  {type === 'Veg Starters' || type === 'Veg Mains' || type === 'Breads' || type === 'Rice' || type === 'Desserts' || type === 'Beverages' 
-                    ? `🟢 ${type}` 
-                    : type === 'Non-Veg Starters' || type === 'Non-Veg Mains' 
-                      ? `🔴 ${type}` 
+                  {type === 'Veg Starters' || type === 'Veg Mains' || type === 'Breads' || type === 'Rice' || type === 'Desserts' || type === 'Beverages'
+                    ? `🟢 ${type}`
+                    : type === 'Non-Veg Starters' || type === 'Non-Veg Mains'
+                      ? `🔴 ${type}`
                       : type}
                 </button>
               ))}
@@ -136,7 +136,7 @@ const Menu = () => {
         {/* 2. MENU GRID */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
           {filteredMenuItems.map(item => (
-            <motion.div 
+            <motion.div
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -148,7 +148,7 @@ const Menu = () => {
               <div className="h-28 md:h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }}></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-300"></div>
-                
+
                 <div className="absolute top-2 left-2 md:top-4 md:left-4 flex gap-1 md:gap-2">
                   <span className="px-2 py-0.5 md:px-3 md:py-1 bg-black/60 backdrop-blur-sm rounded-full text-[8px] md:text-xs font-bold uppercase tracking-widest text-brand-gold border border-brand-gold/30 truncate max-w-[80px] md:max-w-none">
                     {item.cat}
@@ -164,7 +164,7 @@ const Menu = () => {
               <div className="p-3 md:p-6 flex-grow flex flex-col">
                 <h3 className="text-[13px] md:text-xl font-serif font-bold text-gray-100 mb-1 md:mb-2 line-clamp-2 leading-snug">{item.name}</h3>
                 <p className="text-gray-400 text-xs font-light leading-relaxed mb-6 flex-grow hidden md:block">{item.desc}</p>
-                
+
                 <div className="border-t border-gray-800 pt-2 md:pt-4 mt-auto">
                   <div className="flex flex-col">
                     <span className="text-brand-gold font-bold text-sm md:text-xl">₹{item.price}</span>
@@ -183,7 +183,7 @@ const Menu = () => {
           <div>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Excellence in Every Detail</h2>
             <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">We don’t just serve food; we craft royal culinary experiences. Our master chefs ensure every dish is a celebration of authentic flavors.</p>
-            
+
             <div className="grid grid-cols-2 gap-8 mb-8">
               <div>
                 <h4 className="text-4xl font-bold text-brand-gold mb-2">500+</h4>
@@ -197,7 +197,7 @@ const Menu = () => {
                 <p className="text-sm tracking-widest uppercase text-gray-500">From 120+ Reviews</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-4 border border-brand-gold/20 bg-brand-gold/5 rounded-xl p-4 w-max shadow-lg">
               <span className="text-brand-gold text-xl">👨‍🍳</span>
               <span className="text-gray-300 text-sm tracking-wide">Professional 5-Star Catering Team</span>
