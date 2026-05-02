@@ -31,32 +31,32 @@ const rawMenuData = [
   { name: 'Mutton Seekh Kebab', cat: 'Non-Veg Starters', type: 'Non-Veg', price: 420, img: 'https://plus.unsplash.com/premium_photo-1770815084799-72c976c30acc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // Veg Mains
-  { name: 'Paneer Butter Masala', cat: 'Veg Mains', type: 'Veg', price: 300, img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc0?auto=format&fit=crop&q=80&w=400&fm=webphttps://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Paneer Butter Masala', cat: 'Veg Mains', type: 'Veg', price: 300, img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
-  { name: 'Dal Makhani', cat: 'Veg Mains', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80https://images.unsplash.com/photo-1736680056444-02b10f16a245?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&fm=webp' },
+  { name: 'Dal Makhani', cat: 'Veg Mains', type: 'Veg', price: 280, img: 'https://images.unsplash.com/photo-1736680056444-02b10f16a245?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
-  { name: 'Kadai Paneer', cat: 'Veg Mains', type: 'Veg', price: 310, img: 'https://images.unsplash.com/photo-1633383718081-22ac93e3db6https://images.unsplash.com/photo-1642821369314-100fece91d3c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D5?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kadai Paneer', cat: 'Veg Mains', type: 'Veg', price: 310, img: 'https://images.unsplash.com/photo-1642821369314-100fece91d3c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // { name: 'Malai Kofta', cat: 'Veg Mains', type: 'Veg', price: 320, img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
-  { name: 'Mix Veg', cat: 'Veg Mains', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1565557613262-c8https://images.unsplash.com/photo-1756821753481-31183e985c76?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dbf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Mix Veg', cat: 'Veg Mains', type: 'Veg', price: 260, img: 'https://images.unsplash.com/photo-1756821753481-31183e985c76?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // { name: 'Dal Tadka', cat: 'Veg Mains', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c4?auto=format&fit=crop&q=80&w=400&fm=webp' },
   
-  { name: 'Palak Paneer', cat: 'Veg Mains', type: 'Veg', price: 290, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fithttps://images.unsplash.com/photo-1708782345205-94e1d1c54005?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop&q=80&w=400&fm=webp' },
+  { name: 'Palak Paneer', cat: 'Veg Mains', type: 'Veg', price: 290, img: 'https://images.unsplash.com/photo-1708782345205-94e1d1c54005?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // Non-Veg Mains
-  { name: 'Butter Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-160389458https://images.unsplash.com/photo-1728910107534-e04e261768ae?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D4373-5ac82b6ae398?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Butter Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1728910107534-e04e261768ae?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // { name: 'Chicken Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 420, img: 'https://images.unsplash.com/photo-1565557613262-c8bf22810ce1?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
-  { name: 'Mutton Rogan Josh', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 550, img: 'https://images.unsplash.com/photo-1529193591https://images.unsplash.com/photo-1606843046080-45bf7a23c39f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D184-b1d58069ecdd?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Mutton Rogan Josh', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 550, img: 'https://images.unsplash.com/photo-1606843046080-45bf7a23c39f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
-  { name: 'Chicken Tikka Masala', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 460, img: 'https://images.unsplash.com/photo-1588166524941https://images.unsplash.com/photo-1631292784640-2b24be784d5d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D-3bf61a9c41db?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Chicken Tikka Masala', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 460, img: 'https://images.unsplash.com/photo-1631292784640-2b24be784d5d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // { name: 'Kadai Chicken', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 440, img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
-  { name: 'Fish Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 480, img: 'https://images.unsplash.com/photo-1551504734-5ee1c4https://images.unsplash.com/photo-1626508035297-0cd27c397d67?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Da1479b?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Fish Curry', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 480, img: 'https://images.unsplash.com/photo-1626508035297-0cd27c397d67?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   // { name: 'Chicken Korma', cat: 'Non-Veg Mains', type: 'Non-Veg', price: 450, img: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
@@ -76,39 +76,39 @@ const rawMenuData = [
   // Rice
   // { name: 'Veg Biryani', cat: 'Rice', type: 'Veg', price: 250, img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=400&fm=webp' },
   // { name: 'Hyderabadi Biryani (Non-Veg)', cat: 'Rice', type: 'Non-Veg', price: 350, img: 'https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  
 
+  { name: 'Jeera Rice', cat: 'Rice', type: 'Veg', price: 160, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ49zpG69_kA9rY1gWe0x2_3D-TzxFI0Ekrzg&s' },
 
-  { name: 'Jeera Rice', cat: 'Rice', type: 'Veg', price: 160, img: 'https://images.unsplash.com/photo-1512058564366-18510bhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTomIQXVzcTH4ohBc7ID4_AkpOvWjGlaCdMpg&se2db19?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Steam Rice', cat: 'Rice', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1536304929831-ehttps://plus.unsplash.com/premium_photo-1675814316651-3ce3c6409922?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3' },
 
-  { name: 'Steam Rice', cat: 'Rice', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1536304929831-ehttps://plus.unsplash.com/premium_photo-1675814316651-3ce3c6409922?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3De1ca9d44906?auto=format&fit=crop&q=80&w=400&fm=webp' },
-
-  { name: 'Veg Pulao', cat: 'Rice', type: 'Veg', price: 200, img: 'https://images.unsplash.com/photo-16315152433https://www.indianveggiedelight.com/wp-content/uploads/2019/07/veg-pulao-featured.jpg49-e0cb75fb8d3a?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Veg Pulao', cat: 'Rice', type: 'Veg', price: 200, img: 'https://www.indianveggiedelight.com/wp-content/uploads/2019/07/veg-pulao-featured.jpg' },
 
   // { name: 'Peas Pulao', cat: 'Rice', type: 'Veg', price: 180, img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // { name: 'Kashmiri Pulao', cat: 'Rice', type: 'Veg', price: 220, img: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // Desserts
-  { name: 'Gulab Jamun', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1551024506-0bhttps://images.unsplash.com/photo-1666190092159-3171cf0fbb12?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dccd828d307?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Gulab Jamun', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1666190092159-3171cf0fbb12?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   { name: 'Rasmalai', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1618608298711-b0db43e74c86?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // { name: 'Gajar Ka Halwa', cat: 'Desserts', type: 'Veg', price: 140, img: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
-  { name: 'Jalebi with Rabri', cat: 'Desserts', type: 'Veg', price: 130, img: 'https://images.unsplash.com/photo-1589302168068-964664dhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQddpRDn-tB7YbMaV8U2VL2TIvnA-DYHU-fow&s93cb0?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Jalebi with Rabri', cat: 'Desserts', type: 'Veg', price: 130, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQddpRDn-tB7YbMaV8U2VL2TIvnA-DYHU-fow&s' },
 
   { name: 'Ice Cream (Vanilla/Chocolate)', cat: 'Desserts', type: 'Veg', price: 100, img: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   // { name: 'Moong Dal Halwa', cat: 'Desserts', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1624300629298-e9ad39c5952f?auto=format&fit=crop&q=80&w=400&fm=webp' },
-  { name: 'Kulfi (Malai/Pista)', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://images.unsplash.com/photo-1551024506-0bccd828d30https://static.toiimg.com/thumb/84786580.cms?imgsize=157368&width=800&height=8007?auto=format&fit=crop&q=80&w=400&fm=webp' },
+  { name: 'Kulfi (Malai/Pista)', cat: 'Desserts', type: 'Veg', price: 120, img: 'https://static.toiimg.com/thumb/84786580.cms?imgsize=157368&width=800&height=800' },
 
   // Beverages
   { name: 'Mocktails', cat: 'Beverages', type: 'Veg', price: 150, img: 'https://images.unsplash.com/photo-1654074517750-f854f7c27d62?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 
   { name: 'Fresh Lime Soda', cat: 'Beverages', type: 'Veg', price: 90, img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
-  { name: 'Sweet Lassi', cat: 'Beverages', type: 'Veg', price: 110, img: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=formahttps://shwetainthekitchen.com/wp-content/uploads/2021/05/Sweet-lassi.jpgt&fit=crop&q=80&w=400&fm=webp' },
-  
+  { name: 'Sweet Lassi', cat: 'Beverages', type: 'Veg', price: 110, img: 'https://shwetainthekitchen.com/wp-content/uploads/2021/05/Sweet-lassi.jpg' },
+
   { name: 'Cold Coffee', cat: 'Beverages', type: 'Veg', price: 130, img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=400&fm=webp' },
 
   { name: 'Soft Drinks', cat: 'Beverages', type: 'Veg', price: 80, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=400&fm=webp' },
