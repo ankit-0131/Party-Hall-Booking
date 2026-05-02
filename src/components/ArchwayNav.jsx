@@ -8,7 +8,7 @@ const ALL_DESTINATIONS = [
   { title: 'The Royal Menu', path: '/menu', img: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Savor Authentic North Indian Delicacies' },
   { title: 'Grand Party Hall', path: '/hall', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Discover Our Majestic Open-Air Venue' },
   { title: 'Memory Gallery', path: '/gallery', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Relive Golden Jubilee Celebrations' },
-  { title: 'Send Messengers', path: '/contact', img: 'https://images.unsplash.com/photo-1523588484191-c148e42fbe50?auto=format&fit=crop&q=80&w=600&fm=webp', desc: 'Contact Our Royal Event Planners' }
+  { title: 'Send Messengers', path: '/contact', img: 'https://www.samsonhistorical.com/cdn/shop/articles/Image_1-17-24_at_6.29_PM_1600x.jpg?v=1705534640', desc: 'Contact Our Royal Event Planners' }
 ];
 
 const ArchwayNav = () => {
