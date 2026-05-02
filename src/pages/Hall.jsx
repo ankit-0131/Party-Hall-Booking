@@ -53,10 +53,14 @@ const Hall = () => {
           <h2 className="text-3xl font-serif font-bold text-brand-text mb-8">Perfect For Every Occasion</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { title: 'Grand Weddings', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80' },
-              { title: 'Corporate Galas', img: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80' },
-              { title: 'Sangeet & Mehendi', img: 'https://images.unsplash.com/photo-1533174000276-2617f69b4e53?auto=format&fit=crop&q=80' },
-              { title: 'Milestone Birthdays', img: 'https://images.unsplash.com/photo-1530103862676-de889ddeeba8?auto=format&fit=crop&q=80' }
+              { title: 'Grand Weddings', img: 'https://hips.hearstapps.com/hmg-prod/images/cohen-002-4-1547659672.jpg?crop=1.00xw:0.682xh;0,0.275xh&resize=640:*' },
+
+              { title: 'Corporate Galas', img: 'https://images.stockcake.com/public/7/f/a/7fa1c8f2-db6f-4b77-8be3-f6e5175ec41e_large/corporate-gala-event-stockcake.jpg' },
+
+              { title: 'Sangeet & Mehendi', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHoEsq5Kc1alMnKzx6-9fAFBJXGqAWk53Ag&s' },
+
+              { title: 'Milestone Birthdays', img: 'https://images.stockcake.com/public/1/5/e/15edcd5e-bd21-48f8-8327-d2f8f1141a6c_large/joyful-party-celebration-stockcake.jpg' }
+              
             ].map((event, i) => (
               <motion.div 
                 key={event.title}
